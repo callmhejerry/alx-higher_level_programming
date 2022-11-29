@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 import random
 
-number = random.random(-10, 10)
+number = random.randintm(-10, 10)
 if (number < 0):
     print(f"{number} is negative")
 elif (number > 0):
