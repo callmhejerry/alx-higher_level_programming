@@ -6,4 +6,4 @@ if __name__ == '__main__':
 
     for name in name_list:
         if name[1] != '_':
-            print(name);
+            print(name)
