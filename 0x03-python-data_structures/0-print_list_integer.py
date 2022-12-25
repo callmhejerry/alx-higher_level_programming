@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """ A function that prints
     all the items in a list"""
 
