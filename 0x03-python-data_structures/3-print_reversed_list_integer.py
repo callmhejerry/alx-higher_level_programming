@@ -4,7 +4,7 @@
     in reverse order'''
 
 
-def print_reversed_list_integers(my_list = []):
+def print_reversed_list_integers(my_list=[]):
     my_list.reverse()
     for item in my_list:
         print("{:d}".format(item))
