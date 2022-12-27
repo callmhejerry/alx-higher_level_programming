@@ -17,5 +17,6 @@ def roman_to_int(roman_string):
     }
     num = 0
     for letter in roman_string.upper():
-        num += roman[letter]
+        if letter in roman:
+            num += roman[letter]
     return num
