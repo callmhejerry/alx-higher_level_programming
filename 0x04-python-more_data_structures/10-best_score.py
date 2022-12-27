@@ -5,9 +5,9 @@
 
 
 def best_score(a_dictionary):
-    if len(a_dictionary) is 0 or a_dictionary is None:
+    if a_dictionary is None or len(a_dictionary) == 0:
         return None
-    keys = a_dictionary.keys()
+    keys = list(a_dictionary.keys())
     biggest_value = keys[0]
 
     for score in keys:
