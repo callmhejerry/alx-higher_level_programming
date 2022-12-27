@@ -7,11 +7,10 @@
 def best_score(a_dictionary):
     if len(a_dictionary) is 0 or a_dictionary is None:
         return None
-    scores = a_dictionary.values()
-    biggest_value = scores[0]
+    keys = a_dictionary.key()
+    biggest_value = keys[0]
 
-    for score in scores:
-        if score >= biggest_value:
+    for score in keys:
+        if a_dictionary[biggest_value] >= a_dictionary[biggest_value]:
             biggest_value = score
     return biggest_value
-    
