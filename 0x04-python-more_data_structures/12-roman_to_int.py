@@ -16,7 +16,15 @@ def roman_to_int(roman_string):
         'M': 1000
     }
     num = 0
-    for letter in roman_string.upper():
+    tmp = roman_string[0]
+
+    for letter in roman_string:
         if letter in roman:
-            num += roman[letter]
+            if roman[letter] > roman[tmp]:
+                num -= roman[tmp]
+                num += (roman[letter] - roman[tmp])
+                tmp = letter
+            else:
+                num += roman[letter]
+                tmp = letter
     return num
