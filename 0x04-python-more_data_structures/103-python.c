@@ -1,5 +1,5 @@
 #include <Python.h>
-#include <string.h>
+#include <strings.h>
 /**
  * print_python_bytes - A function that prints info
  * about a python byte object
@@ -61,7 +61,7 @@ void print_python_list(PyObject *p)
         item = *(pyList->ob_item)[count];
         pytype = *item.ob_type;
         printf("Element %li: %s\n", count, pytype.tp_name);
-        if (strcmp(pytype.tp_name, "bytes") == 1)
-            print_python_bytes(&item);
+        if (strcmp(pytype.tp_name, "bytes") == 0)
+            print_python_bytes((pyList->ob_item)[count]);
     }
 }
