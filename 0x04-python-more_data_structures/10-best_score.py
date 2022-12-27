@@ -11,6 +11,6 @@ def best_score(a_dictionary):
     biggest_value = keys[0]
 
     for score in keys:
-        if a_dictionary[biggest_value] >= a_dictionary[biggest_value]:
+        if a_dictionary[score] >= a_dictionary[biggest_value]:
             biggest_value = score
     return biggest_value
