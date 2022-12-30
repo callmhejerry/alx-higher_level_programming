@@ -6,7 +6,6 @@
  * @p: the pyObject to print info about
  * Return: void
  */
-
 void print_python_list_info(PyObject *p)
 {
     PyListObject *pylist = (PyListObject *)p;
