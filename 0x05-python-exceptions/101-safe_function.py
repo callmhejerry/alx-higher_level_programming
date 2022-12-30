@@ -1,7 +1,7 @@
 #!/usr/bin/python3
-
-'''a function that executes a function safely'''
 from sys import stderr
+'''a function that executes a function safely'''
+
 
 def safe_function(fct, *args):
     try:
