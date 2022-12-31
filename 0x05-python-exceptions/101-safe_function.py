@@ -5,8 +5,7 @@ from sys import stderr
 
 def safe_function(fct, *args):
     try:
-        first, second = args
-        result = fct(first, second)
+        result = fct(*args)
         return result
     except Exception as exc:
         stderr.write("Exception: {}\n".format(exc))
