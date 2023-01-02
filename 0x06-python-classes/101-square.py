@@ -26,12 +26,12 @@ class Square:
     @size.setter
     def size(self, value):
         '''sets the privated size variable with value'''
-        if isinstance(value, int):
-            if value < 0:
-                raise ValueError("size must be >= 0")
-            self.__size = value
-        else:
+        if not isinstance(value, int):
             raise TypeError("size must be an integer")
+        elif value < 0:
+            raise ValueError("size must be >= 0")
+        else:
+            self.__size = value
 
     @position.setter
     def position(self, value):
