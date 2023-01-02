@@ -58,3 +58,4 @@ class Rectangle:
             my_str += "#"*self.width
             if i != self.height - 1:
                 my_str += '\n'
+        return my_str
