@@ -70,5 +70,6 @@ class Square:
             for i in range(0, self.__size):
                 my_str += " "*self.__position[0]
                 my_str += "#"*self.__size
-                my_str += '\n'
+                if i != self.__position - 1:
+                    my_str += '\n'
         return my_str
