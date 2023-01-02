@@ -24,6 +24,11 @@ class Rectangle:
             raise ValueError("width must be >= 0")
         self.__width = value
 
+    @property
+    def height(self):
+        '''retrieves the private height variable'''
+        return self.__height
+
     @height.setter
     def height(self, value):
         '''sets the private height variable'''
@@ -32,8 +37,3 @@ class Rectangle:
         if value < 0:
             raise ValueError("height must be >= 0")
         self.__height = value
-
-    @property
-    def height(self):
-        '''retrieves the private height variable'''
-        return self.__height
