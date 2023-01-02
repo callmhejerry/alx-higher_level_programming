@@ -17,7 +17,7 @@ class Square:
     def size(self):
         '''retrieves the private size variable'''
         return self.__size
-    
+
     @size.setter
     def size(self, value):
         '''sets the private size variable'''
@@ -56,7 +56,7 @@ class Square:
             or equal to the second instance of the
              square class'''
         return self.__size <= other.size
-    
+
     def __ge__(self, other):
         '''returns true if first instance is greater than
             or equal to the second instance of the

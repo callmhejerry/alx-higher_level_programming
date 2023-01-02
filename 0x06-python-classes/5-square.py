@@ -15,7 +15,7 @@ class Square:
     def size(self):
         '''a getter fucntion to retrieve the private size variable'''
         return self.__size
-    
+
     @size.setter
     def size(self, value):
         '''sets the privated size variable with value'''

@@ -7,7 +7,7 @@
 class Square:
     '''A square class with a private instacnce
         variable size and position'''
-    def __init__(self, size=0, position=(0,0)):
+    def __init__(self, size=0, position=(0, 0)):
         '''initializes the square class with a size variable
             and a positon variable'''
         self.position = position
@@ -17,7 +17,7 @@ class Square:
     def size(self):
         '''a getter fucntion to retrieve the private size variable'''
         return self.__size
-    
+
     @property
     def position(self):
         '''retrieves the private position variable '''
@@ -41,7 +41,8 @@ class Square:
             if first >= 0 and second >= 0:
                 self.__position = value
             else:
-                raise TypeError("position must be a tuple of 2 positive integers")
+                raise TypeError("position must \
+                be a tuple of 2 positive integers")
         else:
             raise TypeError("position must be a tuple of 2 positive integers")
 
