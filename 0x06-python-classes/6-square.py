@@ -36,15 +36,13 @@ class Square:
     @position.setter
     def position(self, value):
         '''Sets the private position variable'''
-        if len(value) == 2:
-            first, second = value
-            if first >= 0 and second >= 0:
-                self.__position = value
-            else:
-                raise TypeError("position must be a tuple \
-                    of 2 positive integers")
-        else:
+        if (len(value) != 2 or not isinstance(value, tuple)
+                or not isinstance(value[0], int)
+                or not isinstance(value[1], int)
+                or value[0] < 0 or value[1] < 0):
             raise TypeError("position must be a tuple of 2 positive integers")
+        else:
+            self.__position = value
 
     def area(self):
         '''returns the area of the square'''
@@ -53,7 +51,7 @@ class Square:
     def my_print(self):
         '''prints the square class using #'''
         if self.__size == 0:
-            print("")
+            print()
         for i in range(0, self.__size):
             if self.__position[1] < 0:
                 print(" "*self.__position[0], end="")
