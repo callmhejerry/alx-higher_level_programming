@@ -50,7 +50,14 @@ class Square:
 
     def my_print(self):
         '''prints the square class using #'''
-        print(self.__str__())
+        if self.__size == 0:
+            print()
+        else:
+            for i in range(self.__position[1]):
+                print()
+            for i in range(self.__size):
+                print(" "*self.__position[0], end="")
+                print("#"*self.__size)
 
     def __str__(self):
         '''returns a string format of the sqaure class'''
@@ -58,7 +65,7 @@ class Square:
         if self.__size == 0:
             return my_str
         else:
-            for i in  range(self.__position[1]):
+            for i in range(self.__position[1]):
                 my_str += '\n'
             for i in range(0, self.__size):
                 my_str += " "*self.__position[0]
