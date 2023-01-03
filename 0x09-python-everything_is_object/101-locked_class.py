@@ -15,3 +15,7 @@ class LockedClass:
     @property
     def first_name(self):
         return self.first_name
+
+    @first_name.setter
+    def first_name(self, value):
+        self.first_name = value
