@@ -9,5 +9,12 @@ class LockedClass:
         '''sets the correct attribute'''
         if __name != "first_name":
             raise AttributeError("'LockedClass'\
-            object has no attribute '{}'".format(__name))
+ object has no attribute '{}'".format(__name))
         self.__dict__[__name] = __value
+
+lc = LockedClass()
+lc.first_name = "John"
+try:
+    lc.last_name = "Snow"
+except Exception as e:
+    print("[{}] {}".format(e.__class__.__name__, e))
