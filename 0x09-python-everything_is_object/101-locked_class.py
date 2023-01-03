@@ -14,4 +14,4 @@ class LockedClass:
 
     @property
     def first_name(self):
-        return self.first_name
+        return self.__dict__["first_name"]
