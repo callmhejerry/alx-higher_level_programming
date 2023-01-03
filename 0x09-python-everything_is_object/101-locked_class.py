@@ -10,7 +10,7 @@ class LockedClass:
         if __name != "first_name":
             raise AttributeError("'LockedClass'\
  object has no attribute '{}'".format(__name))
-        self.__dict__[__name] = __value
+        self.first_name = __value
 
     @property
     def first_name(self):
