@@ -11,3 +11,7 @@ class LockedClass:
             raise AttributeError("'LockedClass'\
  object has no attribute '{}'".format(__name))
         self.__dict__[__name] = __value
+
+    @property
+    def first_name(self):
+        return self.first_name
