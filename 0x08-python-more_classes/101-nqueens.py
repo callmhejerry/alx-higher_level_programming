@@ -5,7 +5,11 @@ if len(argv) - 1 != 1:
     print("Usage: nqueens N")
     exit(1)
 
-if type(int(argv[1])) is not int:
+try:
+    if type(int(argv[1])) is not int:
+        print("N must be a number")
+        exit(1)
+except Exception:
     print("N must be a number")
     exit(1)
 
@@ -50,9 +54,20 @@ def isSafe(board, row, col):
     return True
 
 
-def print_matrix(matrix):
+'''def set_board(matrix):
+    board = getBoard(n)
+
     for row in matrix:
-        print(row)
+        r, c = row
+        board[r][c] = "x"
+    print_board(board)'''
+
+
+'''def print_board(board):
+    for row in board:
+        for col in row:
+            print(col, end=" ")
+        print()'''
 
 
 def back_track(board, inner_soln, row=0):
