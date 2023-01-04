@@ -1,6 +1,7 @@
 A doc test to test the add_integer function
 
-
+>>> import sys
+>>> sys.path.insert(1, '../')
 >>> add_integer = __import__("0-add_integer").add_integer
 
 # testing the function with actual integer input
