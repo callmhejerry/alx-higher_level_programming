@@ -55,34 +55,26 @@ def print_matrix(matrix):
         print(row)
 
 
-def back_track(board, res, inner_soln, row=0):
+def back_track(board, inner_soln, row=0):
     if row >= len(board):
-        return True
+        print(inner_soln)
+        return
     for col in range(len(board[row])):
         if isSafe(board, row, col):
             board[row][col] = 1
-            if back_track(board, res, inner_soln, row + 1):
-                inner_soln.append([row, col])
-                board[row][col] = 0
-                if row != 0:
-                    return True
-                else:
-                    res.append(inner_soln)
-                    inner_soln = []
-                    continue
-            else:
-                board[row][col] = 0
+            inner_soln.append([row, col])
+            back_track(board, inner_soln, row + 1)
+            inner_soln.remove([row, col])
+            board[row][col] = 0
         else:
             continue
-    return False
+    return
 
 
 def soln(n):
     inner_soln = []
-    res = []
     board = getBoard(n)
-    back_track(board, res, inner_soln)
-    print_matrix(res)
+    back_track(board, inner_soln)
 
 
 if __name__ == "__main__":
