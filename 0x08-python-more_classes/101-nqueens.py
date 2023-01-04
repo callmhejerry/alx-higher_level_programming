@@ -15,9 +15,11 @@ if int(argv[1]) < 4:
 
 n = int(argv[1])
 
+
 def getBoard(size):
     board = [[0 for col in range(size)] for row in range(size)]
     return board
+
 
 def check_left_dia(board, row, col):
     if row < 0 or col < 0:
@@ -26,12 +28,14 @@ def check_left_dia(board, row, col):
         return False
     return check_left_dia(board, row - 1, col - 1)
 
+
 def check_right_dia(board, row, col):
     if row < 0 or col >= len(board):
         return True
     if board[row][col] == 1:
         return False
     return check_right_dia(board, row - 1, col + 1)
+
 
 def isSafe(board, row, col):
     for r in range(row):
@@ -45,33 +49,10 @@ def isSafe(board, row, col):
 
     return True
 
-def print_board(board):
-    print("-------------------")
-    for row in range(len(board)):
-        for col in range(len(board)):
-            if board[row][col] == 1:
-                print("X", end=" ")
-            else:
-                print("O", end= " ")
-        print()
-    print("-------------------")
-
 
 def print_matrix(matrix):
     for row in matrix:
         print(row)
-
-def place_queen(board, cell):
-    board[0][cell] = 1
-    placement = [[0, cell]]
-    for row in range(1, len(board)):
-        for col in range(len(board)):
-            if isSafe(board, row, col):
-                board[row][col] = 1
-                print_board(board)
-                placement.append([row, col])
-                break
-    print(placement)
 
 
 def back_track(board, res, inner_soln, row=0):
@@ -92,8 +73,9 @@ def back_track(board, res, inner_soln, row=0):
             else:
                 board[row][col] = 0
         else:
-            continue    
+            continue
     return False
+
 
 def soln(n):
     inner_soln = []
@@ -101,6 +83,7 @@ def soln(n):
     board = getBoard(n)
     back_track(board, res, inner_soln)
     print_matrix(res)
+
 
 if __name__ == "__main__":
     soln(n)
