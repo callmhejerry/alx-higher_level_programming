@@ -8,6 +8,8 @@ A function that prints a square with the character #
 
 def print_square(size):
     '''prints a square with the character #'''
+    if size is None:
+        raise TypeError("size must be an integer")
     if type(size) is float and size < 0:
         raise TypeError("size must be an integer")
     if type(size) is not int:

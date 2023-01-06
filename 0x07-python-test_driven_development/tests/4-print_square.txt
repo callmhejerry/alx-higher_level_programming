@@ -17,3 +17,7 @@ ValueError: size must be >= 0
 Traceback (most recent call last):
 ...
 TypeError: size must be an integer
+>>> square(None)
+Traceback (most recent call last):
+...
+TypeError: size must be an integer
