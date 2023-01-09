@@ -13,7 +13,7 @@ class Square(Rectangle):
     '''A Square class'''
     def __init__(self, size):
         '''creates a Square object'''
-        Rectangle.integer_validator("size", size)
+        Rectangle.integer_validator(self,"size", size)
         Rectangle.__init__(self, size, size)
         self.__size = size
 
