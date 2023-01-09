@@ -77,3 +77,5 @@ ValueError: height must be greater than 0
 >>> bg.integer_validator("height", 20)
 >>> isinstance(bg , BaseGeometry)
 True
+>>> bg.integer_validator(34, 3)
+
