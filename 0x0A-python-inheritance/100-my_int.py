@@ -7,9 +7,9 @@ This module defines MyInt class that inherits from Int
 
 class MyInt(int):
     '''MyInt class'''
-    def __init__(self) -> None:
+    def __init__(self, num) -> None:
         '''Creates a MyInt object'''
-        super().__init__()
+        int.__init__(self)
 
     def __eq__(self, __x: object) -> bool:
         '''implements the equality sign'''
