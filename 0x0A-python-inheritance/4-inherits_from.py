@@ -3,7 +3,7 @@
 '''
 This module defines a function that checks if an
 object is an instance of a class that inherits from
-a class directly or indirectly 
+a class directly or indirectly
 '''
 
 
