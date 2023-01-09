@@ -75,5 +75,5 @@ ValueError: height must be greater than 0
 
 #Test for Correct value
 >>> bg.integer_validator("height", 20)
->>> type(bg)
-<class '7-base_geometry.BaseGeometry'>
+>>> isinstance(bg , BaseGeometry)
+True
