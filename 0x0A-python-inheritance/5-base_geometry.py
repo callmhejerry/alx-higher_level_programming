@@ -3,5 +3,5 @@
 '''This module defines an empty class'''
 
 
-class BaseGeometry(object):
+class BaseGeometry():
     pass
