@@ -4,8 +4,6 @@
 This module defines a Square class that inherits
 from a Rectangle class
 '''
-
-
 Rectangle = __import__("9-rectangle").Rectangle
 
 
