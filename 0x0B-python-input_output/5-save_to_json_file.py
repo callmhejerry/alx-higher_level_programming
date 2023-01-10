@@ -9,6 +9,7 @@ JSON representation
 
 import json
 
+
 def save_to_json_file(my_obj, filename):
     '''save the json representation of [my_obj] to [file name]'''
     with open(filename, "w") as file:
