@@ -8,9 +8,6 @@ import sys
 
 def read_file(filename=""):
     '''reads the contents in a file [filename] and prints in stdout'''
-    with open(filename) as file:
+    with open(filename, 'r', encoding='utf-8') as file:
         for line in file:
             sys.stdout.write(line)
-
-
-read_file("my_file_0.txt")
