@@ -10,10 +10,10 @@ from sys import argv
 save_to_json_file = __import__("5-save_to_json_file").save_to_json_file
 load_from_json_file = __import__("6-load_from_json_file").load_from_json_file
 
-#the list object to add to the file
+# the list object to add to the file
 my_list = []
 
-#Adds the arguments in the list [my_list]
+# Adds the arguments in the list [my_list]
 if len(argv) > 1:
     for i in range(1, len(argv)):
         my_list.append(argv[i])
