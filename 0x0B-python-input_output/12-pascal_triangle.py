@@ -13,7 +13,7 @@ def fact(n):
         return res
     for i in range(1, n + 1):
         res *= i
-    return res 
+    return res
 
 
 def comb(n, r):
