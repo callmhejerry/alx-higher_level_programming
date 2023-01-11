@@ -15,11 +15,11 @@ def append_after(filename="", search_string="", new_string=""):
     lines = []
     with open(filename, encoding="utf-8") as file:
         lines = file.readlines()
-    with open(filename, "w", encoding="utf-8") as file:
         for line_num in range(len(lines)):
             if lines[line_num].find(search_string) >= 0:
                 if line_num == len(lines) - 1:
                     lines.append(new_string)
                 else:
                     lines.insert(line_num + 1, new_string)
+    with open(filename, "w", encoding="utf-8") as file:
         file.writelines(lines)
