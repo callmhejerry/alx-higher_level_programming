@@ -12,14 +12,11 @@ def append_after(filename="", search_string="", new_string=""):
     inserts a string [new_string] in file [filename]
     after each line containing a string [search_string]
     '''
-    lines = []
+    lines = ""
     with open(filename, encoding="utf-8") as file:
-        lines = file.readlines()
-        for line_num in range(len(lines)):
-            if lines[line_num].find(search_string) >= 0:
-                if line_num == len(lines) - 1:
-                    lines.append(new_string)
-                else:
-                    lines.insert(line_num + 1, new_string)
+        for line in file:
+            lines += line
+            if search_string in line:
+                lines += new_string
     with open(filename, "w", encoding="utf-8") as file:
-        file.writelines(lines)
+        file.write(lines)
