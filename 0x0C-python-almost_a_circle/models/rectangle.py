@@ -14,7 +14,7 @@ class Rectangle(Base):
 
     def __init__(self, width, height, x=0, y=0, id=None):
         '''creates the Rectangle class instance'''
-        Base.__init__(id)
+        Base.__init__(self, id)
         self.width = width
         self.height = height
         self.x = x
@@ -63,7 +63,7 @@ class Rectangle(Base):
         '''sets the private x property'''
         if type(value) is not int:
             raise TypeError("x must be an integer")
-        if value <= 0:
+        if value < 0:
             raise ValueError("x must be greater than 0")
         self.__x = value
 
@@ -72,10 +72,15 @@ class Rectangle(Base):
         '''sets the private y property'''
         if type(value) is not int:
             raise TypeError("y must be an integer")
-        if value <= 0:
+        if value < 0:
             raise ValueError("y must be greater than 0")
         self.__y = value
 
     def area(self):
         '''returns the area of the Rectangle'''
         return self.height * self.width
+
+    def display(self):
+        '''prints the Rectangle instance with the #'''
+        for h in range(self.height):
+            print("#" * self.width)
