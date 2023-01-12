@@ -46,9 +46,9 @@ class Rectangle(Base):
         if type(value) is not int:
             raise TypeError("width must be an integer")
         if value <= 0:
-            raise ValueError("width must be greater than 0") 
+            raise ValueError("width must be greater than 0")
         self.__width = value
-    
+
     @height.setter
     def height(self, value):
         '''sets the private height property'''
@@ -84,3 +84,8 @@ class Rectangle(Base):
         '''prints the Rectangle instance with the #'''
         for h in range(self.height):
             print("#" * self.width)
+
+    def __str__(self) -> str:
+        '''returns the string representation of the Rectangle class'''
+        return "[Rectangle] ({:d}) {:d}/{:d} - {:d}/{:d}"\
+            .format(self.id, self.x, self.y, self.width, self.height)
