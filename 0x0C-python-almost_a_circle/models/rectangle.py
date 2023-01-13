@@ -93,3 +93,14 @@ class Rectangle(Base):
         '''returns the string representation of the Rectangle class'''
         return "[Rectangle] ({:d}) {:d}/{:d} - {:d}/{:d}"\
             .format(self.id, self.x, self.y, self.width, self.height)
+
+    def update(self, *args):
+        '''Update the instance attribute with the args value'''
+        dct = {}
+        var = ["id", "width", "height", "x", "y"]
+        for i in range(len(args)):
+            if i == len(var):
+                break
+            dct[var[i]] = args[i]
+        for key, value in dct.items():
+            setattr(self, key, value)
