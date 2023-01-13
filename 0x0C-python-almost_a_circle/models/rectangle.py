@@ -94,13 +94,18 @@ class Rectangle(Base):
         return "[Rectangle] ({:d}) {:d}/{:d} - {:d}/{:d}"\
             .format(self.id, self.x, self.y, self.width, self.height)
 
-    def update(self, *args):
+    def update(self, *args, **kwagrs):
         '''Update the instance attribute with the args value'''
         dct = {}
-        var = ["id", "width", "height", "x", "y"]
-        for i in range(len(args)):
-            if i == len(var):
-                break
-            dct[var[i]] = args[i]
+        if args is not None and len(args) > 0:
+            var = ["id", "width", "height", "x", "y"]
+            for i in range(len(args)):
+                if i == len(var):
+                    break
+                dct[var[i]] = args[i]
+        else:
+            dct = kwagrs
         for key, value in dct.items():
+            if key == "id" and value is None:
+                continue
             setattr(self, key, value)
