@@ -22,9 +22,27 @@ class Square(Rectangle):
 
     @property
     def size(self):
+        '''returns the size attribute'''
         return self.width
 
     @size.setter
     def size(self, value):
+        '''sets the width and height attribute'''
         self.width = value
         self.height = value
+
+    def update(self, *args, **kwargs):
+        '''update the Sqaure attributes'''
+        dct = {}
+        if args is not None and len(args) > 0:
+            var = ["id", "size", "x", "y"]
+            for i in range(len(args)):
+                if i == len(args):
+                    break
+                dct[var[i]] = args[i]
+        else:
+            dct = kwargs
+        for key, value in dct.items():
+            if key == "id" and value is None:
+                continue
+            setattr(self, key, value)
