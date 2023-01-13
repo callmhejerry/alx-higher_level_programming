@@ -46,3 +46,13 @@ class Square(Rectangle):
             if key == "id" and value is None:
                 continue
             setattr(self, key, value)
+
+    def to_dictionary(self):
+        '''returns the dictionary representation of the Square'''
+        dct = {
+          'id': self.id,
+          'x': self.x,
+          'size': self.size,
+          'y': self.y  
+        }
+        return dct
