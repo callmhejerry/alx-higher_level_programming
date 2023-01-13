@@ -109,3 +109,13 @@ class Rectangle(Base):
             if key == "id" and value is None:
                 continue
             setattr(self, key, value)
+
+    def to_dictionary(self):
+        dct = {
+            'x': self.x,
+            'y': self.y,
+            'id': self.id,
+            'height': self.height,
+            'width': self.width
+        }
+        return dct
