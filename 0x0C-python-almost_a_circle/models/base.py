@@ -6,6 +6,7 @@ This Module defines a base [base] class
 
 
 import json
+import csv
 
 
 class Base():
@@ -67,3 +68,28 @@ class Base():
             list_dct = cls.from_json_string(content)
             list_instance = list(map(lambda dct: cls.create(**dct), list_dct))
             return list_instance
+
+    @classmethod
+    def load_from_file_csv(cls):
+        with open("{}.csv".format(cls.__name__), newline='') as file:
+            dcts = csv.DictReader(file, delimiter=",")
+            list_instances = []
+            for dct in dcts:
+                inner_dct = {}
+                for key,val in dct.items():
+                    inner_dct[key] = int(val)
+                obj = cls.create(**inner_dct)
+                list_instances.append(obj)
+            return list_instances
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        with open("{}.csv".format(cls.__name__), 'w') as file:
+            if cls.__name__ == "Rectangle":
+                fieldnames = ["x", "y", "id", "width", "height"]
+            if cls.__name__ == "Square":
+                fieldnames = ["x", "y", "id", "size"]
+            writer = csv.DictWriter(file, fieldnames=fieldnames,delimiter=",")
+            writer.writeheader()
+            for obj in list_objs:
+                writer.writerow(obj.to_dictionary())
