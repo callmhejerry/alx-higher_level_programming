@@ -1,0 +1,6 @@
+#All csv and json files
+*.csv
+*.json
+
+#All python files for testing
+*main.py
