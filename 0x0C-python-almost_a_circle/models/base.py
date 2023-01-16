@@ -7,6 +7,7 @@ This Module defines a base [base] class
 
 import json
 import csv
+import turtle as t
 
 
 class Base():
@@ -71,6 +72,9 @@ class Base():
 
     @classmethod
     def load_from_file_csv(cls):
+        '''
+        returns a list of instances from a csv file
+        '''
         with open("{}.csv".format(cls.__name__), newline='') as file:
             dcts = csv.DictReader(file, delimiter=",")
             list_instances = []
@@ -84,6 +88,10 @@ class Base():
 
     @classmethod
     def save_to_file_csv(cls, list_objs):
+        '''
+        save instances of a Rectangle and a square class in
+        a csv file
+        '''
         with open("{}.csv".format(cls.__name__), 'w') as file:
             if cls.__name__ == "Rectangle":
                 fieldnames = ["x", "y", "id", "width", "height"]
@@ -93,3 +101,33 @@ class Base():
             writer.writeheader()
             for obj in list_objs:
                 writer.writerow(obj.to_dictionary())
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        '''
+        Use the turtle graphics api to draw shapes
+        '''
+        for rec in list_rectangles:
+            t.penup()
+            t.goto(rec.x, rec.y)
+            t.pendown()
+            t.color("blue", "blue")
+            t.begin_fill()
+            for i in range(5):
+                if i % 2 == 1:
+                    t.fd(rec.width)
+                    t.left(90)
+                else:
+                    t.fd(rec.height)
+                    t.left(90)
+            t.end_fill()
+        for sqr in list_squares:
+            t.penup()
+            t.goto(sqr.x, sqr.y)
+            t.pendown()
+            t.color("red", "red")
+            t.begin_fill()
+            for i in range(4):
+                t.fd(sqr.size)
+                t.left(90)
+            t.end_fill()
