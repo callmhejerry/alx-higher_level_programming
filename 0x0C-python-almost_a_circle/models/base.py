@@ -82,7 +82,8 @@ class Base():
             with open(filename) as file:
                 content = file.read()
                 list_dct = cls.from_json_string(content)
-                list_instance = list(map(lambda dct: cls.create(**dct), list_dct))
+                list_instance = list(map(lambda dct: cls.create(**dct),
+                                     list_dct))
                 return list_instance
         except IOError:
             return []
