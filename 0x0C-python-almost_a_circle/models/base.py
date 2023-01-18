@@ -93,16 +93,20 @@ class Base():
         '''
         returns a list of instances from a csv file
         '''
-        with open("{}.csv".format(cls.__name__), newline='') as file:
-            dcts = csv.DictReader(file, delimiter=",")
-            list_instances = []
-            for dct in dcts:
-                inner_dct = {}
-                for key, val in dct.items():
-                    inner_dct[key] = int(val)
-                obj = cls.create(**inner_dct)
-                list_instances.append(obj)
-            return list_instances
+        filename = f"{cls.__name__}.csv"
+        try:
+            with open(filename, newline='') as file:
+                dcts = csv.DictReader(file, delimiter=",")
+                list_instances = []
+                for dct in dcts:
+                    inner_dct = {}
+                    for key, val in dct.items():
+                        inner_dct[key] = int(val)
+                    obj = cls.create(**inner_dct)
+                    list_instances.append(obj)
+                return list_instances
+        except IOError:
+            return []
 
     @classmethod
     def save_to_file_csv(cls, list_objs):
@@ -110,7 +114,9 @@ class Base():
         save instances of a Rectangle and a square class in
         a csv file
         '''
-        with open("{}.csv".format(cls.__name__), 'w') as file:
+        with open("{}.csv".format(cls.__name__), 'w', newline="") as file:
+            if list_objs is None or len(list_objs) == 0:
+                file.write("[]")
             if cls.__name__ == "Rectangle":
                 fieldnames = ["x", "y", "id", "width", "height"]
             if cls.__name__ == "Square":
