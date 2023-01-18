@@ -12,7 +12,14 @@ from rectangle import Rectangle
 class Square(Rectangle):
     '''A Square class'''
     def __init__(self, size, x=0, y=0, id=None):
-        '''creates a Square class'''
+        '''
+        creates a Square class
+
+        Args:
+            size (int): The size attribute for the new Square object
+            x (int): The x coordinate for the new Square object
+            y (int): The y coordinate for the new Square object
+        '''
         super().__init__(size, size, x, y, id)
 
     def __str__(self):
