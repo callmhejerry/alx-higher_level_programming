@@ -66,9 +66,9 @@ class Base():
         '''
         if dictionary is not None and dictionary != {}:
             if cls.__name__ == "Rectangle":
-                dummy_shape = cls(1,1)
+                dummy_shape = cls(1, 1)
             else:
-                dummy_shape =  cls(1)
+                dummy_shape = cls(1)
             dummy_shape.update(**dictionary)
             return dummy_shape
 
