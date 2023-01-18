@@ -19,6 +19,7 @@ class Square(Rectangle):
             size (int): The size attribute for the new Square object
             x (int): The x coordinate for the new Square object
             y (int): The y coordinate for the new Square object
+            id (int): The id of the square
         '''
         super().__init__(size, size, x, y, id)
 
@@ -39,7 +40,18 @@ class Square(Rectangle):
         self.height = value
 
     def update(self, *args, **kwargs):
-        '''update the Sqaure attributes'''
+        '''
+        Update the instance attribute with the args value
+
+        Args:
+            *args (ints): New atrribute value
+                - 1st argumment represents id attribute
+                - 2nd argument represent width attribute
+                - 3rd argument represent height attribute
+                - 4th argument represent x attribute
+                - 5th argument represent y attribute
+            **kwargs (dict): New key/value pairs of attribute
+        '''
         dct = {}
         if args is not None and len(args) > 0:
             var = ["id", "size", "x", "y"]
