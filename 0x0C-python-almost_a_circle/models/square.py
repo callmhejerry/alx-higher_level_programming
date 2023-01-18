@@ -1,12 +1,9 @@
 #!/usr/bin/python3
-
 '''
 This module defines a Square Class that inherits from
 Rectangle class
 '''
-
-
-from rectangle import Rectangle
+from models.rectangle import Rectangle
 
 
 class Square(Rectangle):
