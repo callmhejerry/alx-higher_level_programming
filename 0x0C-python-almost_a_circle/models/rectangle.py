@@ -4,8 +4,6 @@
 This module defines a Rectangle class that inherits from
 the base class
 '''
-
-
 from models.base import Base
 
 
