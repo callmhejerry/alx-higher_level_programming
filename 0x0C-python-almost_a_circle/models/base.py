@@ -38,6 +38,9 @@ class Base():
         Saves the json representation of list_objs to a file
         '''
         with open("{}.json".format(cls.__name__), "w") as file:
+            if list_objs is None or len(list_objs) == 0:
+                file.write("[]")
+                return
             list_dicts = list(map(lambda item: item.to_dictionary(),
                                   list_objs))
             json_str = cls.to_json_string(list_dicts)
@@ -49,6 +52,8 @@ class Base():
         returns the list of the JSON string representation
         of [json_string]
         '''
+        if json_string is None or json_string == '':
+            return []
         return json.loads(json_string)
 
     @classmethod
