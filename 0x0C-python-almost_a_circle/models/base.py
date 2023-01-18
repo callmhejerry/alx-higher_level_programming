@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 '''
-This Module defines a base [base] class 
+This Module defines a base [base] class
 '''
 
 
@@ -19,7 +19,7 @@ class Base():
         if id is not None:
             self.id = id
         else:
-            Base.__nb_objects +=1
+            Base.__nb_objects += 1
             self.id = Base.__nb_objects
 
     @staticmethod
@@ -38,7 +38,8 @@ class Base():
         Saves the json representation of list_objs to a file
         '''
         with open("{}.json".format(cls.__name__), "w") as file:
-            list_dicts = list(map(lambda item: item.to_dictionary(), list_objs))
+            list_dicts = list(map(lambda item: item.to_dictionary(),
+                                  list_objs))
             json_str = cls.to_json_string(list_dicts)
             file.write(json_str)
 
@@ -80,7 +81,7 @@ class Base():
             list_instances = []
             for dct in dcts:
                 inner_dct = {}
-                for key,val in dct.items():
+                for key, val in dct.items():
                     inner_dct[key] = int(val)
                 obj = cls.create(**inner_dct)
                 list_instances.append(obj)
@@ -97,7 +98,7 @@ class Base():
                 fieldnames = ["x", "y", "id", "width", "height"]
             if cls.__name__ == "Square":
                 fieldnames = ["x", "y", "id", "size"]
-            writer = csv.DictWriter(file, fieldnames=fieldnames,delimiter=",")
+            writer = csv.DictWriter(file, fieldnames=fieldnames, delimiter=",")
             writer.writeheader()
             for obj in list_objs:
                 writer.writerow(obj.to_dictionary())
