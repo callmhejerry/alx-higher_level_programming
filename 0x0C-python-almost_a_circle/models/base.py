@@ -60,9 +60,15 @@ class Base():
     def create(cls, **dictionary):
         '''
         returns an instance with all attributes already sets
+
+        Args:
+            **dictionary (dict): Key/value pairs of attributes to initialize
         '''
         if dictionary is not None and dictionary != {}:
-            dummy_shape = cls(1, 2, 2, 2)
+            if cls.__name__ == "Rectangle":
+                dummy_shape = cls(1,1)
+            else:
+                dummy_shape =  cls(1)
             dummy_shape.update(**dictionary)
             return dummy_shape
 
