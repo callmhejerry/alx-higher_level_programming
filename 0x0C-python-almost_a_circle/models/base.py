@@ -79,6 +79,8 @@ class Base():
         '''
         with open("{}.json".format(cls.__name__)) as file:
             content = file.read()
+            if content == "":
+                return []
             list_dct = cls.from_json_string(content)
             list_instance = list(map(lambda dct: cls.create(**dct), list_dct))
             return list_instance
