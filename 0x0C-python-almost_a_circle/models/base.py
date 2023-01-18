@@ -77,13 +77,15 @@ class Base():
         '''
         Returns a list of instances
         '''
-        with open("{}.json".format(cls.__name__)) as file:
-            content = file.read()
-            if content == "":
-                return []
-            list_dct = cls.from_json_string(content)
-            list_instance = list(map(lambda dct: cls.create(**dct), list_dct))
-            return list_instance
+        filename = f"{cls.__name__}.json"
+        try:
+            with open(filename) as file:
+                content = file.read()
+                list_dct = cls.from_json_string(content)
+                list_instance = list(map(lambda dct: cls.create(**dct), list_dct))
+                return list_instance
+        except IOError:
+            return []
 
     @classmethod
     def load_from_file_csv(cls):
