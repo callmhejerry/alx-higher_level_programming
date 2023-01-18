@@ -11,7 +11,19 @@ class Rectangle(Base):
     '''A Rectangle class'''
 
     def __init__(self, width, height, x=0, y=0, id=None):
-        '''creates the Rectangle class instance'''
+        """
+
+        Args:
+            width (int): The width of the Rectangle
+            height (int): The height of the new Rectangle
+            x (int): the x coordinates of the new Rectangle
+            y (int): the y coordinate of the new Rectangle
+        Raises:
+            TypeError: If either of the width or the height is not an integer
+            ValueError: If either of the width or the height <= 0
+            TypeError: If either of the x or y is not an integer
+            ValueError: If either of the x or y is < 0
+        """
         super().__init__(id)
         self.width = width
         self.height = height
@@ -93,7 +105,18 @@ class Rectangle(Base):
             .format(self.id, self.x, self.y, self.width, self.height)
 
     def update(self, *args, **kwagrs):
-        '''Update the instance attribute with the args value'''
+        '''
+        Update the instance attribute with the args value
+
+        Args:
+            *args (ints): New atrribute value
+                - 1st argumment represents id attribute
+                - 2nd argument represent width attribute
+                - 3rd argument represent height attribute
+                - 4th argument represent x attribute
+                - 5th argument represent y attribute
+            **kwargs (dict): New key/value pairs of attribute
+        '''
         dct = {}
         if args is not None and len(args) > 0:
             var = ["id", "width", "height", "x", "y"]
@@ -109,6 +132,7 @@ class Rectangle(Base):
             setattr(self, key, value)
 
     def to_dictionary(self):
+        '''Returns the dictionary representation of Rectangle class'''
         dct = {
             'x': self.x,
             'y': self.y,
