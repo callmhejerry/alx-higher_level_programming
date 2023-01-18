@@ -61,9 +61,10 @@ class Base():
         '''
         returns an instance with all attributes already sets
         '''
-        dummy_shape = cls(1, 2, 2, 2)
-        dummy_shape.update(**dictionary)
-        return dummy_shape
+        if dictionary is not None and dictionary != {}:
+            dummy_shape = cls(1, 2, 2, 2)
+            dummy_shape.update(**dictionary)
+            return dummy_shape
 
     @classmethod
     def load_from_file(cls):
