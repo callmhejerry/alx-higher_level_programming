@@ -2,7 +2,7 @@
 
 const xTimes = parseInt(process.argv[2]);
 
-if (xTimes) {
+if (Number.isInteger(xTimes)) {
   for (let i = 0; i < xTimes; i++) {
     console.log('C is fun');
   }
