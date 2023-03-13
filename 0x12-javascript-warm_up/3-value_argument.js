@@ -1,4 +1,4 @@
-#!/bin/node
+#!/usr/bin/node
 
 const argv = process.argv;
 const firstArgument = argv[2];

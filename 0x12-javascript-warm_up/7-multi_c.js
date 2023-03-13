@@ -1,4 +1,4 @@
-#!/bin/node
+#!/usr/bin/node
 
 const xTimes = parseInt(process.argv[2]);
 
