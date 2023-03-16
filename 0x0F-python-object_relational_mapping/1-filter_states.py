@@ -1,8 +1,11 @@
 #!/usr/bin/python3
+
+
 '''
-This module lists all the states from the
-database hbtn_0e_0_usa
+A script that lists all states with a name
+starting with N from the database hbtn_0e_0_usa
 '''
+
 
 if __name__ == "__main__":
     import sys
@@ -16,7 +19,11 @@ if __name__ == "__main__":
                          user=username, passwd=password,
                          db=database)
     cur = db.cursor()
-    cur.execute("SELECT * FROM states ORDER BY `id`")
+    cur.execute('''
+                SELECT * FROM states
+                WHERE name LIKE "N%"
+                ORDER BY id
+                ''')
     rows = cur.fetchall()
 
     for row in rows:
