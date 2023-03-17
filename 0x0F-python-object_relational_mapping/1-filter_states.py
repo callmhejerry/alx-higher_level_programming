@@ -25,7 +25,6 @@ if __name__ == "__main__":
                 ORDER BY id
                 ''')
     rows = cur.fetchall()
-    if (len(rows) == 0):
-        print()
+
     for row in rows:
         print(row)
