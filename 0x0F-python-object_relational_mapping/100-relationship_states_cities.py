@@ -15,7 +15,7 @@ if __name__ == "__main__":
     username = argv[1]
     password = argv[2]
     db = argv[3]
-    db_url = "mysql+mysqldb://{}:{}@localhost:3306/{}".\
+    db_url = "mysql://{}:{}@localhost:3306/{}".\
              format(username, password, db)
 
     engine = create_engine(db_url)
