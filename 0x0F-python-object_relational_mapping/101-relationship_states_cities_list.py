@@ -24,11 +24,10 @@ if __name__ == '__main__':
     session_maker = sessionmaker(bind=engine)
     session = session_maker()
 
-    states = session.query(State, City).filter(State.id == City.state_id).all()
-    state_name = ""
+    states = session.query(State, State.cities).filter(State.id == City.id)\
+        .order_by(State.id, City.id).all()
     for obj in states:
-        (state, city) = obj
-        if state_name != state.name:
-            print("{}: {}".format(state.id, state.name))
-            state_name = state.name
-        print("    {}: {}".format(city.id, city.name))
+        (state, bools) = obj
+        print("{}: {}".format(state.id, state.name))
+        for city in state.cities:
+            print("    {}: {}".format(city.id, city.name))
