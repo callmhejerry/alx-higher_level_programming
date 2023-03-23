@@ -7,8 +7,8 @@ database hbtn_0e_14_usa
 
 
 if __name__ == "__main__":
-    from model_state import Base, State
-    from model_city import City
+    from relationship_state import Base, State
+    from relationship_city import City
     from sqlalchemy import create_engine
     import sys
     from sqlalchemy.orm import sessionmaker

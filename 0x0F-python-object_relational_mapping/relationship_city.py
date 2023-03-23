@@ -5,7 +5,8 @@ This module contains the class definition of a state
 and an instance Base = declarative_base():
 '''
 from sqlalchemy import Column, Integer, String, ForeignKey
-from model_state import Base, State
+from relationship_state import Base
+from sqlalchemy.orm import relationship
 
 
 class City (Base):
@@ -17,3 +18,4 @@ class City (Base):
     id = Column(Integer, primary_key=True, autoincrement=True, nullable=False)
     name = Column(String(128), nullable=False)
     state_id = Column(Integer, ForeignKey('states.id'), nullable=False)
+    state = relationship('State', back_populates='cities')
