@@ -13,7 +13,8 @@ def find_peak(list_of_integers):
     
     if len(list_of_integers) == 1:
         return list_of_integers[0]
-    
+    if len(list_of_integers) == 2:
+        return max(list_of_integers[0], list_of_integers[1])
     mid = len(list_of_integers) // 2
     left_peak = find_peak(list_of_integers[:mid])
     right_peak = find_peak(list_of_integers[mid:])
