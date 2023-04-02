@@ -1,8 +1,7 @@
 #!/usr/bin/python3
 
 '''
-A script that fetches the commit messages
-from a github api
+A script that 
 '''
 
 
@@ -13,12 +12,9 @@ if __name__ == "__main__":
     repo = sys.argv[1]
     owner = sys.argv[2]
     url = "https://api.github.com/repos/{}/{}/commits".format(owner, repo)
-    headers = {
-        'X-GitHub-Api-Version': '2022-11-28',
-        "accept": "application/vnd.github+json"
-        }
+    headers = {'X-GitHub-Api-Version': '2022-11-28', "accept": "application/vnd.github+json"}
     params = {
-        "per_page": 10,
+        "per_page" : 10,
     }
 
     with requests.get(url, headers=headers, params=params) as response:
