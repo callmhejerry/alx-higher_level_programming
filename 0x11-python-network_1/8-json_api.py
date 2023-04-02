@@ -17,7 +17,7 @@ if __name__ == "__main__":
         data = {"q": param}
     except Exception:
         data = {"q": ""}
-    try :
+    try:
         with requests.post(url, data=data) as response:
             json_response = response.json()
             if json_response == {}:
