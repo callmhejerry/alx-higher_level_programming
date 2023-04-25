@@ -1,6 +1,13 @@
-#!/usr/local/bin/node
-const request = require("request");
+#!/usr/bin/node
+const fs = require('fs');
 
-let file_path = process.argv[2];
+const filePath = process.argv[2];
 
-console.log(file_path);
+function callBack (data, err) {
+  if (data) {
+    console.log(data);
+  } else {
+    console.log(err);
+  }
+}
+fs.readFile(filePath, { encoding: 'utf-8' }, callBack);
