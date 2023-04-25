@@ -7,7 +7,7 @@ request.get(url, (err, response, body) => {
   if (err) {
     console.log(err);
   }
-  if (body) {
+  if (response.statusCode === 200) {
     const obj = JSON.parse(body);
     const data = {};
     for (const todo of obj) {
