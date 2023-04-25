@@ -17,7 +17,7 @@ request.get(url, async (err, res, body) => {
       const res = await promisedRequest(url);
       const data = JSON.parse(res.body);
       console.log(data.name);
-    }
+    };
     for (const character of charactersUrl) {
       await writeFile(character);
     }
