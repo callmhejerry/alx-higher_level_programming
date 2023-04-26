@@ -3,9 +3,8 @@ const request = require('request');
 
 const url = process.argv[2];
 
-
-function findCharacter(characters) {
-  for (let character of characters) {
+function findCharacter (characters) {
+  for (const character of characters) {
     if (character.includes('18')) {
       return true;
     }
